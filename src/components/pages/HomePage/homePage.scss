@@ -1,3 +1,7 @@
+@import '../../../style/variables.scss';
+@import '../../../style/animations.scss';
+@import '../../../style/mixins.scss';
+
 .promo {
    position: relative;
 
@@ -59,7 +63,7 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 24px;
-      color: #97989f;
+      color: $author-color;
       margin-right: 20px;
    }
 
@@ -67,6 +71,97 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
-      color: #97989f;
+      color: $author-color;
+   }
+}
+
+.info {
+   padding-top: 108px;
+
+   &__list-wrapper {
+      margin-top: 16px;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      height: 200px;
+
+      &::before,
+      &::after {
+         @include dark-gradient;
+         content: '';
+         height: 200px;
+         position: absolute;
+         width: 200px;
+         z-index: 2;
+      }
+
+      &::after {
+         right: 0;
+         top: 0;
+         transform: rotateZ(180deg);
+      }
+
+      &::before {
+         left: 0;
+         top: 0;
+      }
+   }
+
+   &__list {
+      display: flex;
+      animation: scroll $animationSpeed linear infinite;
+      width: calc(250px * 7);
+   }
+
+   &__card {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, #181a2a 0%, #242535 100%);
+      background-size: 200% 200%;
+      border-radius: 12px;
+      padding: 12px;
+      margin-right: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      width: 250px;
+      transition: background-position 0.3s ease;
+
+      &:hover {
+         background-position: 100% 0;
+      }
+
+      h3 {
+         text-align: center;
+      }
+
+      img {
+         width: 32px;
+         height: auto;
+         margin-bottom: 12px;
+      }
+   }
+
+   &__header {
+      font-weight: 600;
+      font-size: 22px;
+      color: #fff;
+   }
+
+   &__descr {
+      margin-top: 16px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      color: $article-text-color;
+   }
+
+   &__summary {
+      margin-top: 16px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      color: $article-text-color;
    }
 }
