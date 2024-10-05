@@ -1,9 +1,44 @@
+import { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 import mailIcon from '../../resources/icons/mail.svg';
 import footerLogo from '../../resources/icons/footer-logo.svg';
 
 import './appFooter.scss';
 
 const AppFooter = () => {
+   const [email, setEmail] = useState('');
+   const [statusMessage, setStatusMessage] = useState('');
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      setStatusMessage('Wysyłka...');
+
+      const templateParams = {
+         email: email,
+         from_name: 'Dziennik Team',
+      };
+
+      emailjs
+         .send('service_vm3ywcp', 'template_1k8zhqo', templateParams, 'zlBD2yNWHqskn7PB6')
+         .then(() => {
+            setStatusMessage('Dziękujemy za subskrypcję! Sprawdź swoją skrzynkę e-mail.');
+            setEmail('');
+         })
+         .catch(() => {
+            setStatusMessage('Błąd wysyłania!');
+         });
+   };
+
+   useEffect(() => {
+      if (statusMessage) {
+         const timer = setTimeout(() => {
+            setStatusMessage('');
+         }, 7000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [statusMessage]);
+
    return (
       <footer className="footer">
          <div className="footer__top">
@@ -46,9 +81,15 @@ const AppFooter = () => {
                <h3>Regularny Mailing</h3>
                <p>Otrzymuj artykuły z bloga pocztą e-mail</p>
 
-               <form action="#" method="POST" className="footer__form">
+               <form onSubmit={handleSubmit} className="footer__form">
                   <div className="footer__input">
-                     <input placeholder="Twój e-mail" required name="email" />
+                     <input
+                        type="email"
+                        placeholder="Twój e-mail"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                     />
                      <span className="footer__input-icon">
                         <img src={mailIcon} alt="mail-icon" />
                      </span>
@@ -57,11 +98,14 @@ const AppFooter = () => {
                      Subskrybuj
                   </button>
                </form>
+               {statusMessage && <p className="status-message">{statusMessage}</p>}
             </div>
          </div>
 
          <div className="footer__bottom">
-            <img src={footerLogo} alt="footer-logo" />
+            <a href="#">
+               <img src={footerLogo} alt="footer-logo" />
+            </a>
          </div>
       </footer>
    );
