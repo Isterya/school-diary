@@ -1,4 +1,5 @@
 import AppNavigation from '../appNavigation/AppNavigation';
+import AppFooter from '../appFooter/AppFooter';
 import HomePage from '../pages/HomePage/HomePage';
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
             <AppNavigation />
             <HomePage />
          </div>
+         <AppFooter />
       </div>
    );
 };
