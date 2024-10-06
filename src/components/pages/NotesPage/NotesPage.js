@@ -5,6 +5,9 @@ import { format } from 'date-fns';
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
 
+import postImg from '../../../resources/img/post-img.jpg';
+import profileAvatar from '../../../resources/img/profile-avatar.jpg';
+
 import './notesPage.scss';
 
 const NotesPage = () => {
@@ -16,23 +19,30 @@ const NotesPage = () => {
             <AppNavigation />
             <section className="notes">
                <div className="notes-page">
-                  <h1>Latest Post</h1>
+                  <h1>Najnowsze notatki</h1>
                   <div className="notes-container">
                      {Array.isArray(notes) && notes.length > 0 ? (
                         notes.map((note) => {
                            const formattedDate = format(new Date(note.date), 'MMMM d, yyyy');
 
                            return (
-                              <div className="note-card" key={note.id}>
-                                 <h2>{note.title}</h2>
-                                 <p>{note.description.slice(0, 100)}...</p>
-                                 <p className="note-date">Created on: {formattedDate}</p>
-                                 <Link to={`/notes/${note.id}`}>Читать далее</Link>
-                              </div>
+                              <Link to={`/notes/${note.id}`} className="notes-card" key={note.id}>
+                                 <img src={postImg} alt="post" className="notes-card__img" />
+                                 <div className="notes-card__content">
+                                    <span className="notes-card__category">Technology</span>
+                                    <h2 className="notes-card__title">{note.title}</h2>
+                                    {/* <p className="notes-card__description">{note.description.slice(0, 100)}...</p> */}
+                                    <div className="notes-card__footer">
+                                       <img src={profileAvatar} alt="author" className="notes-card__author-avatar" />
+                                       <span className="notes-card__author-name">Bohdan Yevsieiev</span>
+                                       <span className="notes-card__date">{formattedDate}</span>
+                                    </div>
+                                 </div>
+                              </Link>
                            );
                         })
                      ) : (
-                        <p>Нет доступных заметок.</p>
+                        <p className="notes-empty">Nie ma dostępnych notatek.</p>
                      )}
                   </div>
                </div>
