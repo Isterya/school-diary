@@ -48,7 +48,8 @@ const NewNotePage = () => {
             image: postImg || defaultImage,
          };
 
-         await dispatch(addNote(newNote));
+         dispatch(addNote(newNote));
+
          setSuccess(true);
          setFormTitle('');
          setFormDescription('');
