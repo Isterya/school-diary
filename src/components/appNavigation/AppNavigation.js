@@ -1,7 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 
+import SearchPanel from '../searchPanel/SearchPanel';
+
 import logo from '../../resources/icons/logo.svg';
-import searchIcon from '../../resources/icons/search.svg';
 
 import './appNavigation.scss';
 
@@ -37,14 +38,7 @@ const AppNavigation = () => {
                </li>
             </ul>
          </nav>
-         <div className="menu-search">
-            <div className="menu-search__input">
-               <input type="text" placeholder="Wyszukiwanie" />
-               <span className="menu-search__icon">
-                  <img src={searchIcon} alt="search-icon" />
-               </span>
-            </div>
-         </div>
+         <SearchPanel />
       </header>
    );
 };
