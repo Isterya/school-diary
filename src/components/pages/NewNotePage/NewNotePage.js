@@ -36,18 +36,19 @@ const NewNotePage = () => {
       setError('');
 
       try {
-         await dispatch(
-            addNote({
-               id: uuidv4(),
-               title: formTitle,
-               description: formDescription,
-            })
-         );
+         const newNote = {
+            id: uuidv4(),
+            title: formTitle,
+            description: formDescription,
+            date: new Date().toISOString(),
+         };
+
+         await dispatch(addNote(newNote));
          setSuccess(true);
          setFormTitle('');
          setFormDescription('');
       } catch (err) {
-         setError('Ошибка при создании заметки. Попробуйте снова.');
+         setError('Błąd podczas tworzenia notatki. Spróbuj ponownie.');
       } finally {
          setLoading(false);
       }
@@ -61,8 +62,8 @@ const NewNotePage = () => {
                <div className="new-note__wrapper">
                   <h1>Utwórz nową notatkę</h1>
 
-                  {loading && <p className="status loading">Загрузка...</p>}
-                  {success && <p className="status success">Заметка успешно создана!</p>}
+                  {loading && <p className="status loading">Loading...</p>}
+                  {success && <p className="status success">Notatka została pomyślnie utworzona!</p>}
                   {error && <p className="status error">{error}</p>}
 
                   <form onSubmit={handleSubmit}>
@@ -84,7 +85,7 @@ const NewNotePage = () => {
                         disabled={loading}
                      ></textarea>
                      <button type="submit" disabled={loading}>
-                        {loading ? 'Создание...' : 'Utwórz Notatkę'}
+                        {loading ? 'Tworzenie...' : 'Utwórz Notatkę'}
                      </button>
                   </form>
                </div>
