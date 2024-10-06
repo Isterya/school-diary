@@ -1,18 +1,18 @@
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
 
-import './notesPage.scss';
+import './newNotePage.scss';
 
-const NotesPage = () => {
+const NewNotePage = () => {
    return (
       <>
          <div className="container">
             <AppNavigation />
-            <section className="notes"></section>
+            <section className="new-note"></section>
          </div>
          <AppFooter />
       </>
    );
 };
 
-export default NotesPage;
+export default NewNotePage;

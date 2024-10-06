@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
+import { Link, NavLink } from 'react-router-dom';
+
 import mailIcon from '../../resources/icons/mail.svg';
 import footerLogo from '../../resources/icons/footer-logo.svg';
 
@@ -63,16 +65,18 @@ const AppFooter = () => {
                <h3>Quick Link</h3>
                <ul>
                   <li>
-                     <a href="#">Główna</a>
+                     <NavLink end to="/">
+                        Główna
+                     </NavLink>
                   </li>
                   <li>
-                     <a href="#">Notatki</a>
+                     <NavLink to="/notes">Notatki</NavLink>
                   </li>
                   <li>
-                     <a href="#">Nowa notatka</a>
+                     <NavLink to="/new-note">Nowa notatka</NavLink>
                   </li>
                   <li>
-                     <a href="#">Kontakt</a>
+                     <NavLink to="/contact">Kontakt</NavLink>
                   </li>
                </ul>
             </div>
@@ -103,9 +107,9 @@ const AppFooter = () => {
          </div>
 
          <div className="footer__bottom">
-            <a href="#">
+            <Link to="/">
                <img src={footerLogo} alt="footer-logo" />
-            </a>
+            </Link>
          </div>
       </footer>
    );
