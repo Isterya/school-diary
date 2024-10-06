@@ -29,7 +29,7 @@
             background: transparent;
             border: none;
             outline: none;
-            flex: 1;
+            width: 100%;
             font-weight: 400;
             font-size: 14px;
             line-height: 20px;
@@ -38,7 +38,7 @@
          }
 
          &:focus-within {
-            box-shadow: 0 0 10px rgba(75, 107, 251, 0.5);
+            box-shadow: 0 0 10px rgba(75, 107, 251, 0.7);
          }
       }
 

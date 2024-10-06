@@ -1,0 +1,109 @@
+.new-note {
+   padding: 24px 0 48px 0;
+   display: flex;
+   justify-content: center;
+
+   &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 12px;
+      padding: 40px;
+      background: linear-gradient(145deg, #2b2c3d, #1e1f29);
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+
+      h1 {
+         font-size: 28px;
+         font-weight: 600;
+         color: #fff;
+         margin-bottom: 24px;
+         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      form {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+         gap: 16px;
+      }
+
+      label {
+         font-size: 18px;
+         color: #bbb;
+         margin-bottom: 8px;
+      }
+
+      input[type='text'],
+      textarea {
+         width: 100%;
+         padding: 14px;
+         border-radius: 8px;
+         background-color: #1e1f29;
+         border: 1px solid rgba(255, 255, 255, 0.2);
+         color: #fff;
+         font-size: 16px;
+         transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+         &:focus {
+            border-color: #4b6bfb;
+            box-shadow: 0 0 10px rgba(75, 107, 251, 0.7);
+            outline: none;
+         }
+      }
+
+      textarea {
+         min-height: 180px;
+         resize: vertical;
+      }
+
+      button {
+         padding: 14px;
+         width: 100%;
+         max-width: 250px;
+         background-color: #4b6bfb;
+         color: #fff;
+         font-size: 18px;
+         border: none;
+         border-radius: 8px;
+         cursor: pointer;
+         transition: all 0.3s ease;
+         margin: 20px auto 0;
+
+         &:hover {
+            background: #e5e7eb;
+            color: #1f2937;
+            transform: translateY(-3px);
+         }
+
+         &:active {
+            transform: translateY(0);
+            box-shadow: none;
+         }
+      }
+   }
+}
+
+.status {
+   margin-bottom: 16px;
+   padding: 10px;
+   border-radius: 4px;
+   text-align: center;
+   width: 100%;
+
+   &.loading {
+      background-color: #f0ad4e;
+      color: #fff;
+   }
+
+   &.success {
+      background-color: #5cb85c;
+      color: #fff;
+   }
+
+   &.error {
+      background-color: #d9534f;
+      color: #fff;
+   }
+}

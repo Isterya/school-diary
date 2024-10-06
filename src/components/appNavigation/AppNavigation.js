@@ -39,7 +39,7 @@ const AppNavigation = () => {
          </nav>
          <div className="menu-search">
             <div className="menu-search__input">
-               <input type="text" placeholder="Search" />
+               <input type="text" placeholder="Wyszukiwanie" />
                <span className="menu-search__icon">
                   <img src={searchIcon} alt="search-icon" />
                </span>
