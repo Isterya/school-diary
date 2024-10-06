@@ -20,6 +20,7 @@
    }
 
    &-card {
+      position: relative;
       border: 1px solid #242535;
       border-radius: 12px;
       padding: 16px;
@@ -29,6 +30,10 @@
       text-decoration: none;
       color: inherit;
       transition: transform 0.3s ease;
+
+      a {
+         text-decoration: none;
+      }
 
       &:hover {
          transform: translateY(-3px);
@@ -97,6 +102,30 @@
          font-size: 16px;
          line-height: 24px;
          color: $author-color;
+      }
+
+      &__delete-btn {
+         position: absolute;
+         bottom: 10px;
+         right: 10px;
+         background: none;
+         border: none;
+         cursor: pointer;
+         padding: 5px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         border-radius: 50%;
+         transition: background-color 0.3s ease;
+
+         &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+         }
+
+         img {
+            width: 20px;
+            height: 20px;
+         }
       }
    }
 
