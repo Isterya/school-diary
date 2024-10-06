@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
+import { Helmet } from 'react-helmet-async';
 
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
@@ -18,6 +19,11 @@ const SingleNotePage = () => {
 
    return (
       <>
+         <Helmet>
+            <meta name="description" content={`${note.title}`} />
+            <title>{`Dziennik | ${note.title}`}</title>
+         </Helmet>
+
          <div className="container">
             <AppNavigation />
             <section className="single-note">

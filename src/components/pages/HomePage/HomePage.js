@@ -1,3 +1,8 @@
+import { Helmet } from 'react-helmet-async';
+
+import AppNavigation from '../../appNavigation/AppNavigation';
+import AppFooter from '../../appFooter/AppFooter';
+
 import homeImg from '../../../resources/img/home-img.jpg';
 import profileAvatar from '../../../resources/img/profile-avatar.jpg';
 
@@ -11,12 +16,14 @@ import deploymentIcon from '../../../resources/icons/subject/deployment.svg';
 
 import './homePage.scss';
 
-import AppNavigation from '../../appNavigation/AppNavigation';
-import AppFooter from '../../appFooter/AppFooter';
-
 const renderCards = () => {
    return (
       <>
+         <Helmet>
+            <meta name="description" content="Dziennik Website" />
+            <title>Dziennik | Home</title>
+         </Helmet>
+
          <li className="info__card">
             <img src={planningIcon} alt="planning" />
             <h3>Planowanie i analiza wymagań projektowych</h3>

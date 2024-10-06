@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { Helmet } from 'react-helmet-async';
 
 import { addNote } from '../../../store/notesSlice';
 
@@ -72,6 +73,11 @@ const NewNotePage = () => {
 
    return (
       <>
+         <Helmet>
+            <meta name="description" content="Dziennik Website" />
+            <title>Dziennik | Create New Note</title>
+         </Helmet>
+
          <div className="container">
             <AppNavigation />
             <section className="new-note">

@@ -3,11 +3,18 @@ import AppFooter from '../../appFooter/AppFooter';
 
 import { Link } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet-async';
+
 import './404.scss';
 
 const Page404 = () => {
    return (
       <>
+         <Helmet>
+            <meta name="description" content="Page with error 404" />
+            <title>404 | Something went wrong...</title>
+         </Helmet>
+
          <div className="container">
             <AppNavigation />
             <div className="error">

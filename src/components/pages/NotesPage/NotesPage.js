@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import { Helmet } from 'react-helmet-async';
 
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
@@ -14,6 +15,11 @@ const NotesPage = () => {
 
    return (
       <>
+         <Helmet>
+            <meta name="description" content="Dziennik Website" />
+            <title>Dziennik | Notes</title>
+         </Helmet>
+
          <div className="container">
             <AppNavigation />
             <section className="notes">

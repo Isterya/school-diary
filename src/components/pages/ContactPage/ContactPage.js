@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async';
+
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
 
@@ -13,6 +15,11 @@ import './contactPage.scss';
 const ContactPage = () => {
    return (
       <>
+         <Helmet>
+            <meta name="description" content="Dziennik Website" />
+            <title>Dziennik | About Me</title>
+         </Helmet>
+
          <div className="container">
             <AppNavigation />
             <section className="contact">
