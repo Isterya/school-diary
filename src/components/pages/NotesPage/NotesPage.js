@@ -5,7 +5,6 @@ import { format } from 'date-fns';
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
 
-import postImg from '../../../resources/img/post-img.jpg';
 import profileAvatar from '../../../resources/img/profile-avatar.jpg';
 
 import './notesPage.scss';
@@ -27,11 +26,12 @@ const NotesPage = () => {
 
                            return (
                               <Link to={`/notes/${note.id}`} className="notes-card" key={note.id}>
-                                 <img src={postImg} alt="post" className="notes-card__img" />
+                                 <img src={note.image} alt="post" className="notes-card__img" />
                                  <div className="notes-card__content">
-                                    <span className="notes-card__category">Technology</span>
-                                    <h2 className="notes-card__title">{note.title}</h2>
-                                    {/* <p className="notes-card__description">{note.description.slice(0, 100)}...</p> */}
+                                    <span className="notes-card__category">Projektowanie Oprogramowania</span>
+                                    <h2 className="notes-card__title">
+                                       {note.title.length > 50 ? `${note.title.slice(0, 50)}...` : note.title}
+                                    </h2>
                                     <div className="notes-card__footer">
                                        <img src={profileAvatar} alt="author" className="notes-card__author-avatar" />
                                        <span className="notes-card__author-name">Bohdan Yevsieiev</span>

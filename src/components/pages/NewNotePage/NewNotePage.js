@@ -7,11 +7,14 @@ import { addNote } from '../../../store/notesSlice';
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
 
+import defaultImage from '../../../resources/img/post-img.jpg';
+
 import './newNotePage.scss';
 
 const NewNotePage = () => {
    const [formTitle, setFormTitle] = useState('');
    const [formDescription, setFormDescription] = useState('');
+   const [postImg, setPostImg] = useState(null);
    const [loading, setLoading] = useState(false);
    const [success, setSuccess] = useState(false);
    const [error, setError] = useState('');
@@ -39,18 +42,31 @@ const NewNotePage = () => {
          const newNote = {
             id: uuidv4(),
             title: formTitle,
-            description: formDescription,
+            description: formDescription.replace(/\n/g, '<br/>'),
             date: new Date().toISOString(),
+            image: postImg || defaultImage,
          };
 
          await dispatch(addNote(newNote));
          setSuccess(true);
          setFormTitle('');
          setFormDescription('');
+         setPostImg(null);
       } catch (err) {
          setError('Błąd podczas tworzenia notatki. Spróbuj ponownie.');
       } finally {
          setLoading(false);
+      }
+   };
+
+   const handleImageChange = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+         const reader = new FileReader();
+         reader.onloadend = () => {
+            setPostImg(reader.result);
+         };
+         reader.readAsDataURL(file);
       }
    };
 
@@ -84,6 +100,26 @@ const NewNotePage = () => {
                         required
                         disabled={loading}
                      ></textarea>
+
+                     <label htmlFor="image" className="image-upload-label">
+                        Wybierz obrazek:
+                        <input
+                           type="file"
+                           id="image"
+                           accept="image/*"
+                           onChange={handleImageChange}
+                           className="image-upload-input"
+                           disabled={loading}
+                        />
+                        <span className="image-upload-preview">
+                           {postImg ? (
+                              <img src={postImg} alt="Selected" className="notes-card__img" />
+                           ) : (
+                              'Dodaj obrazek'
+                           )}
+                        </span>
+                     </label>
+
                      <button type="submit" disabled={loading}>
                         {loading ? 'Tworzenie...' : 'Utwórz Notatkę'}
                      </button>
