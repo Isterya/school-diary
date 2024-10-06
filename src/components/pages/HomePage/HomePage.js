@@ -72,9 +72,9 @@ const HomePage = () => {
             <section className="info">
                <h2 className="info__header">Czym jest Projektowanie Oprogramowania?</h2>
                <p className="info__descr">
-                  Ten przedmiot skupia się na nauce tworzenia i rozwijania aplikacji oraz systemów informatycznych.
-                  Uczniowie poznają kluczowe zasady, techniki i narzędzia używane w inżynierii oprogramowania. Zakres
-                  tematyczny może obejmować:
+                  Przedmiot ten koncentruje się na nauce tworzenia oraz rozwoju aplikacji i systemów informatycznych.
+                  Uczniowie zgłębiają kluczowe zasady, techniki oraz narzędzia wykorzystywane w inżynierii
+                  oprogramowania. Program obejmuje szeroki zakres tematów, takich jak:
                </p>
                <div className="info__list-wrapper">
                   <ul className="info__list">
@@ -87,10 +87,11 @@ const HomePage = () => {
                   </ul>
                </div>
                <p className="info__summary">
-                  Kurs ten rozwija praktyczne umiejętności, takie jak rozwiązywanie problemów, krytyczne myślenie,
-                  współpraca w zespole i organizowanie procesu tworzenia oprogramowania, przygotowując studentów do
-                  przyszłej kariery w branży IT. Na tej stronie będę zbierał notatki z tego kursu, poszerzając swoją
-                  wiedzę i ćwicząc na różnych projektach, co pozwoli mi zdobyć praktyczne doświadczenie.
+                  Kurs rozwija praktyczne umiejętności, w tym rozwiązywanie problemów, myślenie krytyczne, współpracę w
+                  zespole oraz organizację procesu tworzenia oprogramowania. Wszystko to przygotowuje uczestników do
+                  przyszłej kariery w branży IT. Na tej stronie będę gromadził notatki z tego kursu, stale poszerzając
+                  swoją wiedzę i pracując nad różnorodnymi projektami, co pozwoli mi zdobyć cenne, praktyczne
+                  doświadczenie.
                </p>
             </section>
          </div>
