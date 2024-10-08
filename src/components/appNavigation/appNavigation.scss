@@ -62,3 +62,32 @@
       }
    }
 }
+
+@media (max-width: 1200px) {
+   .menu {
+      &-list {
+         width: 400px;
+      }
+
+      &__item {
+         font-size: 19px;
+      }
+   }
+}
+
+@media (max-width: 992px) {
+   .menu {
+      &-list {
+         width: 360px;
+      }
+
+      &-logo {
+         width: 150px;
+         height: auto;
+      }
+
+      &__item {
+         font-size: 17px;
+      }
+   }
+}

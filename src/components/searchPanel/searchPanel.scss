@@ -75,3 +75,23 @@
       }
    }
 }
+
+@media (max-width: 1200px) {
+   .menu-search__input {
+      width: 200px;
+
+      input {
+         font-size: 17px;
+      }
+   }
+}
+
+@media (max-width: 992px) {
+   .menu-search__input {
+      width: 150px;
+
+      input {
+         font-size: 14px;
+      }
+   }
+}

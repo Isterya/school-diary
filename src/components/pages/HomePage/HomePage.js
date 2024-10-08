@@ -19,11 +19,6 @@ import './homePage.scss';
 const renderCards = () => {
    return (
       <>
-         <Helmet>
-            <meta name="description" content="Dziennik Website" />
-            <title>Dziennik | Home</title>
-         </Helmet>
-
          <li className="info__card">
             <img src={planningIcon} alt="planning" />
             <h3>Planowanie i analiza wymagań projektowych</h3>
@@ -59,6 +54,11 @@ const renderCards = () => {
 const HomePage = () => {
    return (
       <>
+      <Helmet>
+            <meta name="description" content="Dziennik Website" />
+            <title>Dziennik | Home</title>
+         </Helmet>
+         
          <div className="container">
             <AppNavigation />
             <section className="promo">
