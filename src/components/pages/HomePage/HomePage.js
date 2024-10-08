@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { format } from 'date-fns';
 
 import AppNavigation from '../../appNavigation/AppNavigation';
 import AppFooter from '../../appFooter/AppFooter';
@@ -52,6 +53,8 @@ const renderCards = () => {
 };
 
 const HomePage = () => {
+   const formattedDate = format(new Date(), 'MMMM d, yyyy');
+
    return (
       <>
       <Helmet>
@@ -71,7 +74,7 @@ const HomePage = () => {
                   <div className="promo__meta">
                      <img className="promo-avatar" src={profileAvatar} alt="Author" />
                      <span className="promo__author">Bohdan Yevsieiev</span>
-                     <span className="promo__date">Październik 7, 2024</span>
+                     <span className="promo__date">{formattedDate}</span>
                   </div>
                </div>
             </section>

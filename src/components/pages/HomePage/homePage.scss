@@ -221,3 +221,26 @@
       }
    }
 }
+
+@media (max-width: 576px) {
+   .promo {
+      display: flex;
+      flex-direction: column;
+
+      &__content {
+         position: relative;
+         width: 100%;
+         height: auto;
+         left: 0px;
+         bottom: 0px;
+      }
+
+      &__title {
+         font-size: 26px;
+      }
+   }
+
+   .info {
+      padding: 40px 0 75px 0;
+   }
+}

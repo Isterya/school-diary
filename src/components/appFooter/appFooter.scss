@@ -260,3 +260,45 @@
       }
    }
 }
+
+@media (max-width: 576px) {
+   .footer {
+      &__top {
+         flex-direction: column;
+         align-items: center;
+         height: auto;
+         gap: 20px;
+         padding: 20px;
+      }
+
+      &__about-us {
+         width: 90%;
+         text-align: center;
+      }
+
+      &__links {
+         display: none;
+      }
+
+      &__newsletter {
+         width: 90%;
+         text-align: center;
+      }
+
+      &__input {
+         width: 80%;
+         margin-bottom: 10px;
+      }
+
+      &__btn {
+         width: 80%;
+      }
+
+      .footer__contact {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 5px;
+      }
+   }
+}
